@@ -1,4 +1,6 @@
 with source as (
     select * from {{ source('northwind', 'employee_privileges')}}
 )
-select * from source
+select *,
+        current_timestamp() ingestion_timestamp
+ from source
